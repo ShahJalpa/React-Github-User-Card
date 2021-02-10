@@ -35,19 +35,7 @@ class App extends React.Component {
       })
       .catch((error) => {
         console.log(error)
-      })  
-
-    axios
-      .get("https://api.github.com/users/ShahJalpa/following")
-      .then((response) => {
-        console.log(response.data);
-        this.setState({
-          followers: response.data
-        })
-      })
-      .catch((error) => {
-        console.log(error)
-    })  
+      })   
   }
   render(){
     return (
@@ -60,9 +48,14 @@ class App extends React.Component {
           <h2>{this.state.user.name}</h2>
           <p>{this.state.user.login}</p>
           <p>{this.state.user.location}</p>
-          <a href={this.state.user.html_url} />
+          <a href={this.state.user.html_url}></a> 
           <p>Followers: {this.state.user.followers}</p>
           <p>Following: {this.state.user.following}</p>
+        </div>
+        <div>
+          {this.state.followers.map((follower) => 
+            <img src={follower.avatar_url} alt={follower.login} key={follower.id}/>
+           )}
         </div>
       </div>
     )
