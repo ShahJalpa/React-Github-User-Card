@@ -60,7 +60,9 @@ class App extends React.Component {
           <h2>{this.state.user.name}</h2>
           <p>{this.state.user.login}</p>
           <p>{this.state.user.location}</p>
-          <a href={this.state.user.html_url} ></a>
+          <a href={this.state.user.html_url} />
+          <p>Followers: {this.state.user.followers}</p>
+          <p>Following: {this.state.user.following}</p>
         </div>
       </div>
     )
